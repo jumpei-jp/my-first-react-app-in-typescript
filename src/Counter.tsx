@@ -1,5 +1,5 @@
 //コンポーネントの実装
-import React, { useState } from 'react'; //useStateで状態を管理
+import React, { useEffect, useRef, useState } from 'react'; //useStateで状態を管理
 
 //カウンターコンポーネント(FunctionComponentをFC)
 const Counter: React.FC<{}> = () => {
@@ -16,11 +16,17 @@ const Counter: React.FC<{}> = () => {
     setValue(prevState => prevState - 1);
   };
 
+  const renderTimes = useRef(0);
+  useEffect(() => {
+    renderTimes.current = renderTimes.current + 1;
+  });
+
   return (
     <div>
       <div>value: {value}</div>
       <button onClick={increment}>+1</button>
       <button onClick={decrement}>-1</button>
+      <div>This component was re-rendered {renderTimes.current} times!</div>
     </div>
   );
 };
