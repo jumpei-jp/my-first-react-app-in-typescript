@@ -1,11 +1,19 @@
 import React from 'react';
 
 //interfaceで型を外に出す
-interface AppProp {
-  message: string;
+interface AppProps {
+  message?: string;
+  description?: string;
 }
-const App = ({message}: AppProp) => {
+
+//関数に対して型を指定する必要がある。
+const App: React.FunctionComponent<AppProps> = ({message}) => {
   return <div>{message}</div>;
 };
+
+//デフォルトとして持たせたいkey value
+App.defaultProps = {
+  message: 'Hello, defaultProps!',
+}
 
 export default App;
