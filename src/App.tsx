@@ -1,5 +1,5 @@
 import React from 'react';
-import Counter from './Counter';
+import CounterWithReducer from './CounterWithReducer';
 
 //interfaceで型を外に出す
 interface AppProps {
@@ -10,7 +10,7 @@ interface AppProps {
 //関数に対して型を指定する必要がある。
 const App: React.FunctionComponent<AppProps> = ({message}) => {
   return <div>
-    <Counter />
+    <CounterWithReducer />
   </div>;
 };
 
